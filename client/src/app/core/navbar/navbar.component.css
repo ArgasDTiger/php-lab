@@ -1,0 +1,65 @@
+.navbar-nav {
+  margin-left: 40%;
+}
+
+.nav-icons {
+  position: relative;
+  margin-left: auto;
+}
+
+.nav-icon {
+  background-color: transparent;
+  border: none;
+  font-size: 2.2em;
+  padding: 0 0.4em;
+}
+
+#profileDropdown .dropdown-btn {
+  background-color: transparent;
+  border: none;
+}
+
+.nav-icons p {
+  font-size: 0.8em;
+  position: absolute;
+  left: 3.1em;
+  top: 0.42em;
+  padding: 0 7px;
+  background-color: #c5b7b7;
+  border-radius: 50%;
+  user-select: none;
+}
+
+.nav-icon a {
+  color: inherit;
+}
+
+#profileDropdown ul {
+  margin-left: -4em;
+}
+
+.dropdown-item a {
+  color: var(--bs-dropdown-link-color);
+}
+
+.nav-icon::after {
+  display: none;
+}
+
+.dropdown-menu {
+  cursor: pointer;
+  user-select: none;
+}
+
+.dropdown-menu {
+  left: -4em;
+}
+
+.dropdown-toggle:focus {
+  outline: none !important;
+}
+
+/* doesn't work for some reason*/
+.dropdown-menu .dropdown-item:hover {
+  background-color: #222222 !important;
+}

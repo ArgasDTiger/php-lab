@@ -1,0 +1,20 @@
+<div class="card">
+  <div class="card-img-container">
+    <img class="card-img" src="{{ book.imageUrl }}" alt="{{ book.title }}">
+    <p class="rating-text">0/10</p>
+  </div>
+  <div class="card-body">
+    <div class="d-flex flex-column justify-content-center align-items-center">
+      <p class="card-name">{{ book.title }}</p>
+      <p class="card-price">${{ book.price | number:'1.2-2' }}</p>
+    </div>
+    <div class="btn-group w-100">
+      <button class="btn btn-outline-primary" routerLink="/store/{{ book.id }}">
+        <i class="bi bi-info-lg"></i>
+      </button>
+      <button class="btn btn-outline-primary" (click)="addBookToBasket(book)">
+        <i class="bi bi-cart-plus"></i>
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,26 @@
+<main class="container">
+  <h1 class="text-primary-emphasis h1 text-center"> {{ book.title }}</h1>
+  <hr>
+  <div class="row book-info">
+    <div class="col-lg-4 col-md-6 col-sm-6 book-card">
+      <img [src]="book.imageUrl" alt="">
+      <button class="bi bi-cart-plus mt-1" (click)="addBookToBasket()"></button>
+    </div>
+    <div class="col-lg-8 col-md-6 col-sm-6">
+      <p><b>ISBN:</b> {{book.isbn}}</p>
+      <p *ngIf="book.authors.length === 1"><b>Author:</b> {{ book.authors }}</p>
+      <p *ngIf="book.authors.length > 1"><b>Authors:</b> {{ book.authors }}</p>
+      <p *ngIf="book.publisher"><b>Publisher:</b> {{ book.publisher }}</p>
+      <p *ngIf="book.publishDate"><b>Publish Date:</b> {{ book.publishDate | date: 'MMMM d, y' }}</p>
+      <p><b>Price:</b> {{ book.price | currency }}</p>
+      <p><b>Average rating:</b> 0.0</p>
+      <div class="rating-group">
+        <p><b>Your rating:</b> </p>
+        <star-rating></star-rating>
+      </div>
+      <p *ngIf="book.pages"><b>Pages:</b> {{book.pages}}</p>
+      <hr>
+      <p>{{ book.description }}</p>
+    </div>
+  </div>
+</main>

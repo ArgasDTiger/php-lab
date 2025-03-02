@@ -1,0 +1,32 @@
+.wide-input {
+  width: 90%;
+  max-width: 500px;
+}
+
+.input-group-append .input-group-text {
+  cursor: pointer;
+}
+
+.input-group.wide-input .form-control {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.input-group.wide-input .input-group-append .input-group-text {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.input-group.wide-input .password-input {
+  flex: 1 1 auto;
+}
+
+.input-group.wide-input {
+  display: flex;
+  width: 90%;
+  max-width: 500px;
+}
+
+label {
+  margin-top: 0.25em;
+}

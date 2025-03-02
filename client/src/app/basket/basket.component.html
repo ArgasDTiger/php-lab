@@ -1,0 +1,45 @@
+<main class="container">
+  <h1 class="text-primary-emphasis h1">Basket</h1>
+  <hr>
+  <div *ngIf="(basket$ | async) as basket" class="d-flex justify-content-center align-items-center">
+    <table>
+      <thead class="thead-light">
+      <tr>
+        <th scope="col">Book</th>
+        <th scope="col">Price</th>
+        <th scope="col">Quantity</th>
+        <th scope="col">Subtotal</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let item of basket.items">
+        <th class="basket-row-header" scope="row">
+          <img src="{{ item.imageUrl}}" alt="{{ item.title }}">
+          <p>{{ item.title }}</p>
+          <i class="bi bi-trash" (click)="removeItemFromBasket(item)"></i>
+        </th>
+        <td>{{ item.price | currency }}</td>
+        <td>
+          <i class="bi bi-dash" (click)="decrementItemQuantity(item)"></i>
+          <p class="d-inline-flex">{{ item.quantity }}</p>
+          <i class="bi bi-plus" (click)="incrementItemQuantity(item)"></i>
+        </td>
+        <td>{{ item.price * item.quantity | currency }}</td>
+      </tr>
+
+      </tbody>
+      <tfoot>
+      <tr>
+        <td colspan="2"></td>
+        <td><p>Total:</p></td>
+        <td>
+          <p class="fw-bold">{{ getTotal(basket) | currency }}</p>
+        </td>
+      </tr>
+      </tfoot>
+    </table>
+  </div>
+  <div class="d-flex justify-content-end basket-purchase">
+    <button class="btn btn-primary">Purchase</button>
+  </div>
+</main>

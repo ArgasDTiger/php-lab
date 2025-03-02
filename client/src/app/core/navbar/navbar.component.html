@@ -1,0 +1,63 @@
+<nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
+  <div class="container-fluid">
+    <a class="navbar-brand ms-3" routerLink="/">
+      <img src="assets/images/logo.png" alt="Bookish" style="max-height: 50px;">
+    </a>
+    <button class="navbar-toggler" type="button" (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div [ngbCollapse]="isCollapsed" class="collapse navbar-collapse">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            routerLink="/"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{exact: true}"
+          >Home
+          </a>
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            routerLink="/store"
+            routerLinkActive="active"
+          >Store
+          </a>
+        </li>
+      </ul>
+      <div class="nav-icons">
+        <button
+          routerLink="/basket"
+          class="nav-icon">
+          <a>
+            <i class="bi bi-cart4"></i>
+          </a>
+
+        </button>
+        <p *ngIf="(basket$ | async) as basket"> {{ basket.items.length }} </p>
+        <div
+          ngbDropdown
+          class="d-inline-flex dropdown me-3"
+          #drop="ngbDropdown"
+          (mouseover)="drop.open()"
+          (mouseout)="drop.close()">
+          <button class="nav-icon" type="button" ngbDropdownToggle>
+            <i class="bi bi-person-circle"></i>
+          </button>
+          <ul *ngIf="(currentUser$ | async) === null" class="dropdown-menu" ngbDropdownMenu>
+            <li class="dropdown-item" (click)="openLoginModal()">Login</li>
+            <li class="dropdown-item" (click)="openRegisterModal()">Register</li>
+          </ul>
+          <ul *ngIf="(currentUser$ | async)" class="dropdown-menu" ngbDropdownMenu>
+            <li class="dropdown-item">Profile</li>
+            <li class="dropdown-item" (click)="onLogout()">Logout</li>
+          </ul>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</nav>

@@ -1,0 +1,32 @@
+.ul-dropdown {
+  font-size: 0.85em;
+  max-height: 240px;
+  width: 200px;
+  overflow: auto;
+}
+
+.ul-dropdown::-webkit-scrollbar {
+  width: 5px;
+}
+
+.ul-dropdown::-webkit-scrollbar-thumb {
+  border-radius: 15px;
+}
+
+.dropdown-item {
+  cursor: pointer;
+}
+
+.dropdown-menu {
+  user-select: none;
+  padding: 0;
+}
+
+/*to get rid of default chevron*/
+.custom-toggle::after {
+  display: none;
+}
+
+div {
+  cursor: pointer;
+}

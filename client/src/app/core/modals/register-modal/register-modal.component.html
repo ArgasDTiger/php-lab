@@ -1,0 +1,41 @@
+<app-modal [modalName]="'Sign Up'">
+  <form
+    [formGroup]="registerForm"
+    (ngSubmit)="onSubmit()"
+    class="d-flex justify-content-center align-items-center flex-column">
+    <h1 class="h3 font-weight-normal">Please enter your data</h1>
+    <h2 *ngIf="registerForm!.errors?.['apiError']" class="h5 text-danger">Weird things happened, try again</h2>
+    <app-text-input
+      [type]="'email'"
+      [label]="'Email'"
+      formControlName="email"
+      class="input"
+    ></app-text-input>
+    <app-text-input
+      [type]="'text'"
+      [label]="'Username'"
+      formControlName="username"
+      class="input"
+    ></app-text-input>
+    <app-text-input
+      [type]="'password'"
+      [label]="'Password'"
+      formControlName="password"
+      class="input"
+    ></app-text-input>
+    <app-text-input
+      [type]="'password'"
+      [label]="'Confirm Password'"
+      [password]="registerForm.get('password')?.value"
+      formControlName="confirmPassword"
+      class="input"
+    ></app-text-input>
+
+
+    <button
+      class="btn btn-lg btn-primary btn-block"
+      [disabled]="registerForm.invalid"
+      type="submit">Register</button>
+  </form>
+
+</app-modal>

@@ -1,0 +1,142 @@
+.welcome-block {
+  height: 500px;
+  position: relative;
+  overflow: hidden;
+  background: var(--block-gradient);
+}
+
+.welcome-block img {
+  width: 50%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+}
+
+.welcome-block .img-right {
+  right: 0;
+}
+
+.welcome-block .img-left {
+  left: 0;
+}
+
+.welcome-block h1 {
+  font-size: 3em;
+  color: #e1685f;
+  position: absolute;
+  top: 40%;
+  transform: translate(-50%, -50%);
+}
+
+.welcome-block h1 {
+  font-size: 3em;
+  color: #e1685f;
+  position: absolute;
+}
+
+.welcome-block h1.text-left {
+  top: 40%;
+  left: 25%;
+  transform: translate(-50%, -50%);
+}
+
+.welcome-block h1.text-right {
+  top: 40%;
+  right: 45%;
+  transform: translate(150%, 50%);
+}
+
+.welcome-block h2 {
+  font-size: 2em;
+  color: #e1685f;
+  position: absolute;
+}
+
+.welcome-block h2.text-left {
+  left: 25%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.welcome-block h2.text-right {
+  right: 45%;
+  top: 53%;
+  transform: translate(150%, 50%);
+}
+@media screen and (max-width: 1210px) {
+  .welcome-block h1.text-right {
+    right: 55%;
+  }
+  .welcome-block h2.text-right {
+    right: 55%;
+  }
+}
+
+@media screen and (max-width: 950px) {
+  .welcome-block {
+    height: 480px;
+  }
+  .welcome-block h1.text-left {
+    font-size: 2.5em;
+  }
+
+  .welcome-block h2.text-left {
+    font-size: 1.7em;
+    top: 48%;
+  }
+
+  .welcome-block h1.text-right {
+    font-size: 2.5em;
+    right: 60%;
+  }
+
+  .welcome-block h2.text-right {
+    font-size: 1.7em;
+    top: 51%;
+    right: 61%;
+  }
+}
+
+@media screen and (max-width: 840px) {
+  .welcome-block {
+    height: 450px;
+  }
+
+  .welcome-block h1.text-left {
+    font-size: 2.2em;
+  }
+
+  .welcome-block h2.text-left {
+    font-size: 1.5em;
+    top: 47%;
+  }
+  .welcome-block h1.text-right {
+    font-size: 2.2em;
+  }
+
+  .welcome-block h2.text-right {
+    font-size: 1.5em;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .welcome-block {
+    height: 400px;
+  }
+}
+
+@media screen and (max-width: 630px) {
+  .welcome-block {
+    height: 390px;
+  }
+
+  .welcome-block h1.text-left,
+  .welcome-block h1.text-right {
+    font-size: 1.8em;
+  }
+
+  .welcome-block h2.text-right {
+    font-size: 1.2em;
+  }
+}

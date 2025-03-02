@@ -1,0 +1,28 @@
+<app-modal [modalName]="'Sign In'">
+  <form
+    [formGroup]="loginForm"
+    (ngSubmit)="onSubmit()"
+    class="d-flex justify-content-center align-items-center flex-column">
+    <h1 class="h3 mb-3 font-weight-normal">Please enter your data</h1>
+    <h2 *ngIf="loginForm!.errors?.['apiError']" class="h5 text-danger">Weird things happened, try again</h2>
+    <h2 *ngIf="loginForm!.errors?.['wrongCredentials']" class="h5 text-danger">Wrong credentials</h2>
+    <h2 *ngIf="loginForm!.errors?.['noUser']" class="h5 text-danger">User doesn't exist</h2>
+
+    <app-text-input
+      [type]="'email'"
+      [label]="'Email'"
+      formControlName="email"
+      class="input"
+    ></app-text-input>
+    <app-text-input
+      [type]="'password'"
+      [label]="'Password'"
+      formControlName="password"
+      class="input"
+    ></app-text-input>
+    <button
+      class="btn btn-lg btn-primary btn-block"
+      [disabled]="loginForm.invalid"
+      type="submit">Login</button>
+  </form>
+</app-modal>

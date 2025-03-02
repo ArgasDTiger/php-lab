@@ -1,0 +1,72 @@
+<main class="container ">
+  <h1 class="text-primary-emphasis h1">Store</h1>
+  <hr>
+
+  <div class="row">
+    <app-dropdown
+      class="d-flex align-items-center mb-1 col-2 me-4 ms-4 position-relative"
+      title="Genres"
+      [items]="genres"
+      [selectedItems]="selectedGenres"
+      [displayProperty]="'name'"
+      (itemSelected)="onGenreSelected($event)">
+    </app-dropdown>
+
+    <app-dropdown
+      class="d-flex align-items-center mb-1 col-2 me-4 ms-4 position-relative"
+      title="Authors"
+      [items]="authors"
+      [selectedItems]="selectedAuthors"
+      [displayProperty]="'fullName'"
+      (itemSelected)="onAuthorSelected($event)">
+    </app-dropdown>
+
+    <app-dropdown
+      class="d-flex align-items-center mb-1 col-2 me-4 ms-4 position-relative"
+      title="Sort"
+      [items]="sortOptions"
+      [selectedItems]="selectedSort"
+      [displayProperty]="'name'"
+      (itemSelected)="onSortSelected($event)">
+    </app-dropdown>
+
+
+
+    <div
+      class="d-inline-flex mb-3 col-6 col-lg-3 col-md-6 col-sm-2 ms-5 ms-sm-4"
+      *ngIf="books">
+      <input
+        #searchInput
+        class="form-control me-sm-2 search"
+        type="text"
+        placeholder="Book's name..."
+        (keyup.enter)="onSearch()"
+        >
+      <button
+        class="btn btn-secondary my-2 my-sm-0"
+        (click)="onSearch()">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+
+  </div>
+  <app-paging-header
+    [totalCount]="totalCount!"
+    [pageSize]="storeParams.pageSize"
+    [pageNumber]="storeParams.pageIndex"
+  ></app-paging-header>
+  <div class="row mt-3">
+    <app-book-item
+      *ngFor="let book of books"
+      [book]="book"
+      class="col-xl-2 col-lg-2 col-md-3 col-sm-4 ms-3 me-3"
+    ></app-book-item>
+  </div>
+  <div class="d-flex justify-content-center">
+    <app-pager
+      [pageSize]="storeParams.pageSize"
+      [totalCount]="totalCount"
+      (pageChanged)="onPageChanged($event)"
+    ></app-pager>
+  </div>
+</main>

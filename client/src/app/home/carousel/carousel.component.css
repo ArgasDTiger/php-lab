@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200');
+
+.carousel-container {
+  width: 1024px;
+  margin: 50px auto;
+  min-height: 200px;
+  position: relative;
+  cursor: pointer;
+}
+
+.carousel-container .carousel-inner {
+  overflow: hidden;
+}
+
+.carousel-container .track {
+  display: flex;
+  transition: transfrom 0.3s;
+}
+
+.nav button {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 1px solid #aaa;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.prev {
+  left: -30px;
+}
+
+.prev:hover .arrow-left {
+  transform: translateX(-0.3em);
+  transition: 0.3s;
+}
+
+.next {
+  right: -30px;
+}
+
+.next:hover .arrow-right {
+  transform: translateX(0.3em);
+  transition: 0.3s;
+}
+
+@media screen and (max-width: 960px) {
+  .carousel-container {
+    width: 900px;
+  }
+}
+
+@media screen and (max-width: 915px) {
+  .carousel-container {
+    width: 675px;
+  }
+}

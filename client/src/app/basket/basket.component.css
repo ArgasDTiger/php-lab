@@ -1,0 +1,179 @@
+table {
+  width: 90%;
+  background: var(--block-gradient);
+}
+
+thead {
+  height: 3em;
+  font-size: 1.1em;
+  border-bottom: 1px solid var(--border-color);
+}
+
+tbody tr {
+  border-bottom: 1px solid var(--border-color);
+}
+
+tbody tr:last-child {
+  border-bottom: none;
+}
+
+tfoot {
+  border-top: 1px solid var(--border-color);
+}
+
+thead th {
+  width: 14%;
+}
+thead th:first-child {
+  width: 58%;
+}
+
+thead th,
+tbody th,
+tbody td {
+  border-right: 1px solid var(--border-color);
+  text-align: center;
+}
+
+thead th:last-child,
+tbody th:last-child,
+tbody td:last-child {
+  border-right: none;
+}
+
+.basket-row-header {
+  display: flex;
+  align-items: center;
+}
+.basket-row-header img {
+  margin: 0.6em 0 0.6em 2em;
+  height: 18em;
+  width: 12em;
+  object-fit: cover;
+}
+.basket-row-header p {
+  margin: auto 0 auto auto;
+}
+
+.basket-row-header i.bi-trash {
+  color: #6b6b72;
+  margin-top: 0.2em;
+  margin-left: 0.6em;
+  margin-right: auto;
+  cursor: pointer;
+}
+
+.basket-row-header i.bi-trash:hover {
+  color: #da5656;
+}
+
+tbody {
+  font-size: 1.1em;
+}
+
+tfoot {
+  font-size: 1.2em;
+}
+
+.bi-dash,
+.bi-plus {
+  background-color: #eed1d0;
+  margin: 0 0.7em;
+  padding: 0.1em 0.25em;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.bi-dash:hover,
+.bi-plus:hover {
+  background-color: #e3d0ce;
+
+}
+
+.basket-purchase {
+  margin-top: 1em;
+  width: 90%;
+}
+
+.basket-purchase button {
+  width: 20%;
+}
+
+@media screen and (max-width: 1200px) {
+  tbody {
+    font-size: 1em;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  tbody {
+    font-size: 0.9em;
+  }
+
+  .bi-dash,
+  .bi-plus {
+    margin: 0 0.3em;
+    padding: 0.1em 0.25em;
+  }
+
+  table {
+    width: 100%;
+  }
+
+  tfoot {
+    font-size: 1.05em;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  thead {
+    height: 2.5em;
+    font-size: 0.9em;
+  }
+  .basket-row-header img {
+    margin: 0.4em 0 0.4em 1em;
+    height: 14em;
+    width: 9em;
+    object-fit: cover;
+  }
+  thead th {
+    width: 18%;
+  }
+  thead th:first-child {
+    width: 46%;
+  }
+  .basket-row-header p {
+    font-size: 0.9em;
+  }
+
+  tfoot {
+    font-size: 0.95em;
+  }
+}
+@media screen and (max-width: 475px) {
+  thead {
+    height: 2.5em;
+    font-size: 0.9em;
+  }
+  .basket-row-header img {
+    margin: 0.4em 0 0.4em 1em;
+    height: 12em;
+    width: 7em;
+    object-fit: cover;
+  }
+  thead {
+    height: 2.5em;
+    font-size: 0.8em;
+  }
+  .basket-row-header p {
+    font-size: 0.8em;
+  }
+
+  tbody {
+    font-size: 0.8em;
+  }
+
+  tfoot {
+    font-size: 0.85em;
+  }
+}

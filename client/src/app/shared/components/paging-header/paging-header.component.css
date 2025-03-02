@@ -1,0 +1,9 @@
+.resultsFound {
+  font-size: 1.2em;
+}
+
+@media screen and (max-width: 992px) {
+  .resultsFound {
+    font-size: 1em;
+  }
+}

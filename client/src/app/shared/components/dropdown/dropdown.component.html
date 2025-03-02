@@ -1,0 +1,23 @@
+<div
+  class="d-flex"
+  ngbDropdown
+  #dropdown="ngbDropdown"
+  [autoClose]="'outside'">
+  <h4 class="store-h4 custom-toggle" ngbDropdownToggle>{{ title }}</h4>
+  <button
+    class="btn btn-link d-inline-block ps-2 custom-toggle"
+    type="button"
+    ngbDropdownToggle>
+    <i class="bi" [ngClass]="dropdown.isOpen() ? 'bi-chevron-up' : 'bi-chevron-down'"></i>
+  </button>
+
+  <ul class="ul-dropdown mt-2" ngbDropdownMenu>
+    <li
+      *ngFor="let item of items"
+      class="dropdown-item"
+      (click)="onItemSelected(item)"
+      [class.active]="isActive(item)">
+      {{ item[displayProperty] }}
+    </li>
+  </ul>
+</div>
