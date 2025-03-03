@@ -4,12 +4,13 @@ import {HomeService} from "./home.service";
 import {IBook} from "../shared/models/book";
 
 @Component({
-    selector: 'app-home',
-    imports: [
-        CarouselComponent
-    ],
-    templateUrl: './home.component.html',
-    styleUrl: './home.component.css'
+  selector: 'app-home',
+  imports: [
+    CarouselComponent
+  ],
+  templateUrl: './home.component.html',
+  standalone: true,
+  styleUrl: './home.component.css'
 })
 export class HomeComponent implements OnInit {
   books!: IBook[];

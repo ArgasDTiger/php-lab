@@ -13,21 +13,22 @@ import {PagingHeaderComponent} from "../shared/components/paging-header/paging-h
 import {DropdownComponent} from "../shared/components/dropdown/dropdown.component";
 
 @Component({
-    selector: 'app-store',
-    imports: [
-        NgClass,
-        NgIf,
-        NgbDropdownToggle,
-        NgbDropdownMenu,
-        NgbDropdown,
-        NgForOf,
-        BookItemComponent,
-        PagerComponent,
-        PagingHeaderComponent,
-        DropdownComponent
-    ],
-    templateUrl: './store.component.html',
-    styleUrl: './store.component.css'
+  selector: 'app-store',
+  imports: [
+    NgClass,
+    NgIf,
+    NgbDropdownToggle,
+    NgbDropdownMenu,
+    NgbDropdown,
+    NgForOf,
+    BookItemComponent,
+    PagerComponent,
+    PagingHeaderComponent,
+    DropdownComponent
+  ],
+  templateUrl: './store.component.html',
+  standalone: true,
+  styleUrl: './store.component.css'
 })
 export class StoreComponent implements OnInit {
   @ViewChild("searchInput") searchInput!: ElementRef;

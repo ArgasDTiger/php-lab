@@ -12,19 +12,20 @@ import {BasketService} from "../../basket/basket.service";
 import {IBasket} from "../../shared/models/basket";
 
 @Component({
-    selector: 'app-navbar',
-    imports: [
-        RouterLink,
-        RouterLinkActive,
-        NgbCollapse,
-        NgbDropdownMenu,
-        NgbDropdown,
-        NgbDropdownToggle,
-        NgIf,
-        AsyncPipe
-    ],
-    templateUrl: './navbar.component.html',
-    styleUrl: './navbar.component.css'
+  selector: 'app-navbar',
+  imports: [
+    RouterLink,
+    RouterLinkActive,
+    NgbCollapse,
+    NgbDropdownMenu,
+    NgbDropdown,
+    NgbDropdownToggle,
+    NgIf,
+    AsyncPipe
+  ],
+  templateUrl: './navbar.component.html',
+  standalone: true,
+  styleUrl: './navbar.component.css'
 })
 export class NavbarComponent implements OnInit {
   isCollapsed = true;

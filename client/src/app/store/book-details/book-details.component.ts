@@ -7,16 +7,17 @@ import {CurrencyPipe, DatePipe, NgIf, NgOptimizedImage} from "@angular/common";
 import {StarRatingComponent} from "../../shared/components/star-rating/star-rating.component";
 
 @Component({
-    selector: 'app-book-details',
-    imports: [
-        NgIf,
-        NgOptimizedImage,
-        DatePipe,
-        StarRatingComponent,
-        CurrencyPipe
-    ],
-    templateUrl: './book-details.component.html',
-    styleUrl: './book-details.component.css'
+  selector: 'app-book-details',
+  imports: [
+    NgIf,
+    NgOptimizedImage,
+    DatePipe,
+    StarRatingComponent,
+    CurrencyPipe
+  ],
+  templateUrl: './book-details.component.html',
+  standalone: true,
+  styleUrl: './book-details.component.css'
 })
 export class BookDetailsComponent implements OnInit {
   book!: IBook;

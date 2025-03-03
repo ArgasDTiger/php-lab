@@ -4,6 +4,8 @@ import {IUser} from "../shared/models/user";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Router} from "@angular/router";
 import {environment} from "../../environments/environment.development";
+import { jwtDecode } from 'jwt-decode';
+import {RoleJwtPayload} from "../shared/models/role-jwt-payload";
 
 @Injectable({
   providedIn: 'root'
@@ -67,6 +69,15 @@ export class AccountService {
 
   checkEmailExists(email: string) {
     return this.http.get(this.baseUrl + 'account/emailexists?email=' + email);
+  }
+
+  getRole(): string | null {
+    const token = localStorage.getItem('token');
+    if (token) {
+      const decoded = jwtDecode<RoleJwtPayload>(token);
+      return decoded.role || null;
+    }
+    return null;
   }
 
 }

@@ -5,13 +5,14 @@ import {BasketService} from "../../basket/basket.service";
 import {RouterLink} from "@angular/router";
 
 @Component({
-    selector: 'app-book-item',
-    imports: [
-        DecimalPipe,
-        RouterLink
-    ],
-    templateUrl: './book-item.component.html',
-    styleUrl: './book-item.component.css'
+  selector: 'app-book-item',
+  imports: [
+    DecimalPipe,
+    RouterLink
+  ],
+  templateUrl: './book-item.component.html',
+  standalone: true,
+  styleUrl: './book-item.component.css'
 })
 export class BookItemComponent {
   @Input() book!: IBook;

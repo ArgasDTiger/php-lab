@@ -3,15 +3,16 @@ import { ControlValueAccessor, NgControl } from "@angular/forms";
 import { JsonPipe, LowerCasePipe, NgClass, NgIf } from "@angular/common";
 
 @Component({
-    selector: 'app-text-input',
-    imports: [
-        NgClass,
-        NgIf,
-        LowerCasePipe,
-        JsonPipe
-    ],
-    templateUrl: './text-input.component.html',
-    styleUrls: ['./text-input.component.css']
+  selector: 'app-text-input',
+  imports: [
+    NgClass,
+    NgIf,
+    LowerCasePipe,
+    JsonPipe
+  ],
+  templateUrl: './text-input.component.html',
+  standalone: true,
+  styleUrls: ['./text-input.component.css']
 })
 export class TextInputComponent implements OnInit, ControlValueAccessor {
   @ViewChild('input') input!: ElementRef;
