@@ -1,0 +1,135 @@
+<app-modal [modalName]="'Update Book'">
+  <form
+    [formGroup]="bookForm"
+    (ngSubmit)="onSubmit()"
+    class="d-flex justify-content-center align-items-center flex-column">
+
+    <h1 class="h3 mb-3 font-weight-normal">Update Book Details</h1>
+    <div *ngIf="errorMessage" class="alert alert-danger w-100">{{ errorMessage }}</div>
+
+    <app-text-input
+      [type]="'text'"
+      [label]="'ISBN'"
+      formControlName="isbn"
+      class="input"
+    ></app-text-input>
+
+    <app-text-input
+      [type]="'text'"
+      [label]="'Title'"
+      formControlName="title"
+      class="input"
+    ></app-text-input>
+
+    <div class="form-group input">
+      <label for="description">Description</label>
+      <textarea
+        id="description"
+        class="form-control"
+        rows="4"
+        formControlName="description"
+      ></textarea>
+      <div *ngIf="bookForm.get('description')?.errors?.['required'] && bookForm.get('description')?.touched" class="text-danger">
+        Description is required
+      </div>
+      <div *ngIf="bookForm.get('description')?.errors?.['minlength'] && bookForm.get('description')?.touched" class="text-danger">
+        Description must be at least 10 characters
+      </div>
+    </div>
+
+    <!-- Image Upload Section -->
+    <div class="form-group input">
+      <label for="image">Book Cover Image</label>
+      <div class="custom-file">
+        <input
+          type="file"
+          class="custom-file-input"
+          id="image"
+          accept="image/jpeg,image/png,image/jpg"
+          (change)="onImageSelected($event)">
+        <label class="custom-file-label" for="image">
+          {{ imageFile ? imageFile.name : 'Choose new image' }}
+        </label>
+      </div>
+      <small class="form-text text-muted">
+        Please upload JPG, JPEG, or PNG image (max 20MB). Leave empty to keep current image.
+      </small>
+      <div *ngIf="imagePreview" class="image-preview mt-2">
+        <img [src]="imagePreview" alt="Book cover preview" class="img-thumbnail">
+      </div>
+    </div>
+
+    <app-text-input
+      [type]="'number'"
+      [label]="'Pages'"
+      formControlName="pages"
+      class="input"
+    ></app-text-input>
+
+    <app-text-input
+      [type]="'number'"
+      [label]="'Price'"
+      formControlName="price"
+      class="input"
+    ></app-text-input>
+
+    <app-text-input
+      [type]="'date'"
+      [label]="'Publish Date'"
+      formControlName="publishDate"
+      class="input"
+    ></app-text-input>
+
+    <!-- Genres Selection -->
+    <div class="form-group input">
+      <label>Genres</label>
+      <div class="genres-container">
+        <div *ngFor="let genre of genres" class="form-check">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            [id]="'genre_' + genre.id"
+            [checked]="isGenreSelected(genre.id)"
+            (change)="onGenreChange($event, genre.id)"
+          >
+          <label class="form-check-label" [for]="'genre_' + genre.id">
+            {{ genre.name }}
+          </label>
+        </div>
+      </div>
+      <div *ngIf="bookForm.get('genreIds')?.errors?.['required'] && bookForm.get('genreIds')?.touched" class="text-danger">
+        At least one genre must be selected
+      </div>
+    </div>
+
+    <!-- Authors Selection -->
+    <div class="form-group input">
+      <label>Authors</label>
+      <div class="authors-container">
+        <div *ngFor="let author of authors" class="form-check">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            [id]="'author_' + author.id"
+            [checked]="isAuthorSelected(author.id)"
+            (change)="onAuthorChange($event, author.id)"
+          >
+          <label class="form-check-label" [for]="'author_' + author.id">
+            {{ author.fullName }}
+          </label>
+        </div>
+      </div>
+      <div *ngIf="bookForm.get('authorIds')?.errors?.['required'] && bookForm.get('authorIds')?.touched" class="text-danger">
+        At least one author must be selected
+      </div>
+    </div>
+
+    <button
+      class="btn btn-lg btn-primary btn-block mt-3"
+      [disabled]="bookForm.invalid || loading"
+      type="submit">
+      <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+      Update Book
+    </button>
+  </form>
+</app-modal>
