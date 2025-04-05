@@ -7,10 +7,11 @@ import {BasketService} from "./basket/basket.service";
 import {NgxSpinnerComponent} from "ngx-spinner";
 
 @Component({
-    selector: 'app-root',
-    imports: [RouterOutlet, NavbarComponent, FooterComponent, NgxSpinnerComponent],
-    templateUrl: './app.component.html',
-    styleUrl: './app.component.css'
+  selector: 'app-root',
+  imports: [RouterOutlet, NavbarComponent, FooterComponent, NgxSpinnerComponent],
+  templateUrl: './app.component.html',
+  standalone: true,
+  styleUrl: './app.component.css'
 })
 export class AppComponent implements OnInit {
   constructor(private accountService: AccountService,
@@ -19,7 +20,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadCurrentUser();
-    this.loadBasket();
+    // this.loadBasket();
   }
 
   loadCurrentUser() {

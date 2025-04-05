@@ -58,7 +58,6 @@ export class BasketService {
       imageUrl: book.imageUrl,
       quantity,
       price: book.price,
-      publisher: book.publisher,
       genres: book.genres,
       authors: book.authors
     };

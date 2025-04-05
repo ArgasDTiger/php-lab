@@ -13,7 +13,6 @@ import {ModalService} from "../../../shared/modal/modal.service";
     ModalComponent,
     TextInputComponent,
     ReactiveFormsModule,
-    NgClass,
     NgIf
   ],
   templateUrl: './login-modal.component.html',

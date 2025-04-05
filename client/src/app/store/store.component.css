@@ -15,6 +15,20 @@
   margin: 0 auto;
 }
 
+.new-book {
+  color: var(--bs-primary);
+  background-color: transparent;
+  font-size: 11em;
+  cursor: pointer;
+  border: none;
+  border-radius: 50%;
+}
+
+.new-book:hover {
+  color: #e17d79;
+  background-color: #f6e0e0;
+}
+
 @media screen and (max-width: 992px) {
   .container h1 {
     font-size: 2.2em;

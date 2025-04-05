@@ -1,11 +1,10 @@
-<ngb-pagination
-  *ngIf="totalCount! > 0"
-  [collectionSize]="totalCount!"
-  [(page)]="currentPage"
-  [pageSize]="pageSize"
-  (pageChange)="onPagerChange($event)"
-  [boundaryLinks]="true"
-  [directionLinks]="true"
-  [rotate]="true"
-  [maxSize]="5"
-></ngb-pagination>
+<p-paginator
+  *ngIf="totalCount > 0"
+  [rows]="pageSize"
+  [totalRecords]="totalCount"
+  [first]="(currentPage-1) * pageSize"
+  (onPageChange)="onPageChange($event)"
+  styleClass="bootstrap-paginator"
+  [showCurrentPageReport]="true"
+  currentPageReportTemplate="{currentPage} of {totalPages}"
+></p-paginator>

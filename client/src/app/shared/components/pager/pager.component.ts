@@ -1,25 +1,23 @@
-import {Component, EventEmitter, Input, Output} from '@angular/core';
-import {NgIf} from "@angular/common";
-import {NgbPagination} from "@ng-bootstrap/ng-bootstrap";
-
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { PaginatorModule } from 'primeng/paginator';
 
 @Component({
   selector: 'app-pager',
-  imports: [
-    NgIf,
-    NgbPagination
-  ],
-  templateUrl: './pager.component.html',
   standalone: true,
-  styleUrl: './pager.component.css'
+  imports: [CommonModule, PaginatorModule],
+  templateUrl: './pager.component.html',
+  styleUrls: ['./pager.component.css']
 })
 export class PagerComponent {
-  @Input() totalCount!: number;
-  @Input() pageSize!: number;
+  @Input() totalCount: number = 0;
+  @Input() pageSize: number = 10;
   @Output() pageChanged = new EventEmitter<number>();
+
   currentPage = 1;
 
-  onPagerChange(page: number) {
-    this.pageChanged.emit(page);
+  onPageChange(event: any) {
+    this.currentPage = Math.floor(event.first / event.rows) + 1;
+    this.pageChanged.emit(this.currentPage);
   }
 }

@@ -1,0 +1,102 @@
+/* Bootstrap-like styling for PrimeNG paginator */
+:host ::ng-deep .bootstrap-paginator {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+/* Page buttons container */
+:host ::ng-deep .bootstrap-paginator .p-paginator-pages {
+  display: flex;
+}
+
+/* Individual page number buttons */
+:host ::ng-deep .bootstrap-paginator .p-paginator-page {
+  margin: 0 2px;
+  min-width: 2.5rem;
+  height: 2.5rem;
+  line-height: 2.5rem;
+  border-radius: 0.25rem;
+  text-align: center;
+  position: relative;
+  display: block;
+  padding: 0;
+  border: 1px solid #dee2e6;
+  background-color: #fff;
+  color: #0d6efd;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+}
+
+/* Active page */
+:host ::ng-deep .bootstrap-paginator .p-highlight {
+  background-color: #0d6efd !important;
+  border-color: #0d6efd !important;
+  color: #fff !important;
+  z-index: 3;
+}
+
+/* Hover effect */
+:host ::ng-deep .bootstrap-paginator .p-paginator-page:not(.p-highlight):hover {
+  background-color: #e9ecef;
+  border-color: #dee2e6;
+  color: #0a58ca;
+  z-index: 2;
+}
+
+/* First, Prev, Next, Last buttons */
+:host ::ng-deep .bootstrap-paginator .p-paginator-first,
+:host ::ng-deep .bootstrap-paginator .p-paginator-prev,
+:host ::ng-deep .bootstrap-paginator .p-paginator-next,
+:host ::ng-deep .bootstrap-paginator .p-paginator-last {
+  min-width: 2.5rem;
+  height: 2.5rem;
+  margin: 0 2px;
+  border-radius: 0.25rem;
+  border: 1px solid #dee2e6;
+  background-color: #fff;
+  color: #0d6efd;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+}
+
+/* Hover effect for navigation buttons */
+:host ::ng-deep .bootstrap-paginator .p-paginator-first:hover,
+:host ::ng-deep .bootstrap-paginator .p-paginator-prev:hover,
+:host ::ng-deep .bootstrap-paginator .p-paginator-next:hover,
+:host ::ng-deep .bootstrap-paginator .p-paginator-last:hover {
+  background-color: #e9ecef;
+  border-color: #dee2e6;
+  color: #0a58ca;
+  z-index: 2;
+}
+
+/* Disabled buttons */
+:host ::ng-deep .bootstrap-paginator .p-disabled {
+  opacity: 0.5;
+  pointer-events: none;
+  color: #6c757d !important;
+  background-color: #fff !important;
+  border-color: #dee2e6 !important;
+}
+
+/* Current page report */
+:host ::ng-deep .bootstrap-paginator .p-paginator-current {
+  margin: 0 0.5rem;
+  color: #6c757d;
+}
+
+/* Rows per page dropdown */
+:host ::ng-deep .bootstrap-paginator .p-dropdown {
+  border-radius: 0.25rem;
+  border: 1px solid #dee2e6;
+  height: 2.5rem;
+}
+
+:host ::ng-deep .bootstrap-paginator .p-dropdown:hover {
+  border-color: #adb5bd;
+}
+
+:host ::ng-deep .bootstrap-paginator .p-dropdown-label {
+  padding: 0.375rem 0.75rem;
+}

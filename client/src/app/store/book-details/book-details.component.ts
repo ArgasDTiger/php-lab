@@ -10,7 +10,6 @@ import {StarRatingComponent} from "../../shared/components/star-rating/star-rati
   selector: 'app-book-details',
   imports: [
     NgIf,
-    NgOptimizedImage,
     DatePipe,
     StarRatingComponent,
     CurrencyPipe

@@ -11,15 +11,15 @@ import {BookItemComponent} from "./book-item/book-item.component";
 import {PagerComponent} from "../shared/components/pager/pager.component";
 import {PagingHeaderComponent} from "../shared/components/paging-header/paging-header.component";
 import {DropdownComponent} from "../shared/components/dropdown/dropdown.component";
+import {ModalService} from "../shared/modal/modal.service";
+import {AddBookModalComponent} from "./add-book-modal/add-book-modal.component";
+import {AccountService} from "../account/account.service";
 
 @Component({
   selector: 'app-store',
   imports: [
     NgClass,
     NgIf,
-    NgbDropdownToggle,
-    NgbDropdownMenu,
-    NgbDropdown,
     NgForOf,
     BookItemComponent,
     PagerComponent,
@@ -45,17 +45,19 @@ export class StoreComponent implements OnInit {
   selectedGenres: string[] = ['All'];
   selectedAuthors: string[] = ['All'];
   selectedSort: string = 'Name (A-Z)';
+  role: string = 'User';
 
   totalCount = 0;
   storeParams = new StoreParams();
 
-  constructor(private storeService: StoreService) {
+  constructor(private storeService: StoreService, private modalService: ModalService, private accountService: AccountService,) {
   }
 
   ngOnInit(): void {
       this.getBooks();
       this.getGenres();
       this.getAuthors();
+      this.role = this.accountService.getRole() || 'User';
   }
 
   getBooks() {
@@ -80,7 +82,9 @@ export class StoreComponent implements OnInit {
   getAuthors() {
     this.storeService.getAuthors()
       .subscribe(response => {
+        console.log("response", response);
         this.authors = [...this.authors, ...response!];
+        console.log("this.authors", this.authors);
       });
   }
 
@@ -141,10 +145,16 @@ export class StoreComponent implements OnInit {
   }
 
   onPageChanged(event: any) {
+    console.log("on page changed")
     if (this.storeParams.pageIndex !== event) {
       this.storeParams.pageIndex = event;
       this.getBooks();
     }
   }
+
+  onAddBook() {
+    this.modalService.open(AddBookModalComponent);
+  }
+
 
 }

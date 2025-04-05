@@ -61,11 +61,20 @@
       [book]="book"
       class="col-xl-2 col-lg-2 col-md-3 col-sm-4 ms-3 me-3"
     ></app-book-item>
+    @if (role == 'Admin') {
+      <div class="col-xl-2 col-lg-2 col-md-3 col-sm-4 ms-3 me-3">
+        <button class="new-book" type="button" (click)="onAddBook()">
+          <i class="bi bi-plus"></i>
+        </button>
+
+      </div>
+    }
+
   </div>
   <div class="d-flex justify-content-center">
     <app-pager
       [pageSize]="storeParams.pageSize"
-      [totalCount]="totalCount"
+      [totalCount]="totalCount!"
       (pageChanged)="onPageChanged($event)"
     ></app-pager>
   </div>

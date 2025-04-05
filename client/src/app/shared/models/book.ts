@@ -10,7 +10,6 @@ export interface IBook {
   pages: number;
   price: number;
   publishDate: Date;
-  publisher?: string;
   genres: IGenre[];
   authors: IAuthor[];
 }

@@ -14,3 +14,33 @@ button {
 h1 {
   margin-bottom: 0.75em;
 }
+
+select.form-control {
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  max-width: 370px;
+  padding-left: 3rem;
+  padding-right: 1rem;
+  height: 40px;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  background-color: white;
+  font-size: 16px;
+  appearance: none;
+  margin-bottom: 1rem;
+}
+
+.input-group.wide-input select.form-control {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.input-group.wide-input .input-group-append .input-group-text {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  background-color: #f8f9fa;
+  border: 1px solid #ced4da;
+  padding: 0.375rem 0.75rem;
+  cursor: pointer;
+}

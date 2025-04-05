@@ -14,7 +14,7 @@ export class HomeService {
   getBooks() {
     let params = new HttpParams();
 
-    params = params.append('pageSize', 12);
+    params = params.append('pageSize', 11);
 
     return this.http.get<IPagination>(environment.apiUrl + 'books', { observe: 'response', params })
       .pipe(

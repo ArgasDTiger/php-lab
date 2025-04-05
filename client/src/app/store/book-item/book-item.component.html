@@ -1,6 +1,6 @@
 <div class="card">
   <div class="card-img-container">
-    <img class="card-img" src="{{ book.imageUrl }}" alt="{{ book.title }}">
+    <img class="card-img" [src]="'data:image/jpeg;base64,' + book.imageUrl" *ngIf="book.imageUrl" alt="{{ book.title }}">
     <p class="rating-text">0/10</p>
   </div>
   <div class="card-body">
@@ -16,5 +16,15 @@
         <i class="bi bi-cart-plus"></i>
       </button>
     </div>
+    @if (role == 'Admin') {
+      <div class="btn-group w-100">
+        <button class="btn btn-outline-primary" (click)="openUpdateModal()">
+          <i class="bi bi-pen"></i>
+        </button>
+        <button class="btn btn-outline-primary" (click)="onDelete()">
+          <i class="bi bi-trash"></i>
+        </button>
+      </div>
+    }
   </div>
 </div>

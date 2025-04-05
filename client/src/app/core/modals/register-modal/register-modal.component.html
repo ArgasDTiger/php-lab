@@ -17,6 +17,12 @@
       formControlName="username"
       class="input"
     ></app-text-input>
+    <div class="input-group wide-input">
+      <select formControlName="language" class="form-control">
+        <option value="" disabled selected>Select your language</option>
+        <option *ngFor="let lang of languages" [value]="lang.code">{{ lang.name }}</option>
+      </select>
+    </div>
     <app-text-input
       [type]="'password'"
       [label]="'Password'"
